@@ -19,6 +19,7 @@ rootProject.allprojects {
 apply plugin: 'com.android.library'
 
 android {
+    namespace "com.arthenica.ffmpegkit.flutter"
     compileSdkVersion 31
 
     defaultConfig {
