@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.public_header_files = 'Classes/**/*.h'
 
   s.default_subspec     = 'https'
-  s.subspec             = 'https-lts'
+  s.subspec             = 'https'
 
   s.dependency          'FlutterMacOS'
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES' }
