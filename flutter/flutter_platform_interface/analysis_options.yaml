@@ -1,6 +1,4 @@
 analyzer:
-  enable-experiment:
-    - non-nullable
   strong-mode:
     implicit-dynamic: false
   errors:
@@ -40,7 +38,6 @@ linter:
     - package_names
     - package_prefixed_library_names
     - prefer_asserts_in_initializer_lists
-    - prefer_const_constructors
     - prefer_const_declarations
     - prefer_expression_function_bodies
     - prefer_final_locals
