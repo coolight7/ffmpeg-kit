@@ -466,11 +466,6 @@ fi
   --disable-audiotoolbox \
   --disable-appkit \
   --disable-alsa \
-  --disable-cuda \
-  --disable-cuvid \
-  --disable-nvenc \
-  --disable-vaapi \
-  --disable-vdpau \
   ${CONFIGURE_POSTFIX} 1>>"${BASEDIR}"/build.log 2>&1
 
 if [[ $? -ne 0 ]]; then

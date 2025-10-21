@@ -371,7 +371,7 @@ abstract class AbstractSession extends Session {
   /// started, still running or failed then this method returns null.
   Future<ReturnCode?> getReturnCode() async {
     try {
-      return _platform
+      return await _platform
           .abstractSessionGetReturnCode(this.getSessionId())
           .then((returnCode) {
         if (returnCode == null) {

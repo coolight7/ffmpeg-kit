@@ -17,6 +17,8 @@
  * along with FFmpegKit.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+import 'package:flutter/foundation.dart';
+
 import '../abstract_session.dart';
 import '../ffmpeg_session_complete_callback.dart';
 import '../ffprobe_session_complete_callback.dart';
@@ -75,19 +77,25 @@ class FFmpegKitFactory {
 
   static Session? mapToNullableSession(Map<dynamic, dynamic>? sessionMap) {
     if (sessionMap != null) {
-      switch (sessionMap["type"]) {
-        case 2:
-          return AbstractSession.createFFprobeSessionFromMap(sessionMap);
-        case 3:
-          return AbstractSession.createMediaInformationSessionFromMap(
-              sessionMap);
-        case 1:
-        default:
-          return AbstractSession.createFFmpegSessionFromMap(sessionMap);
+      try {
+        switch (sessionMap["type"]) {
+          case 2:
+            return AbstractSession.createFFprobeSessionFromMap(sessionMap);
+          case 3:
+            return AbstractSession.createMediaInformationSessionFromMap(
+                sessionMap);
+          case 1:
+          default:
+            return AbstractSession.createFFmpegSessionFromMap(sessionMap);
+        }
+      } catch (e, stack) {
+        if (kDebugMode) {
+          print(e);
+          print(stack);
+        }
       }
-    } else {
-      return null;
     }
+    return null;
   }
 
   static MediaInformation? mapToNullableMediaInformation(
